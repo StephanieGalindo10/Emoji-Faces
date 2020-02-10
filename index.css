@@ -39,4 +39,83 @@
                 top: var(--t, 13px);
                 width: var(--w, 8px);
                 height: var(--h, 2px);
-                transform: rotate(var(--      
+                transform: rotate(var(-- 
+                r, 0deg)) scale(var(--sc, 1)) translateZ(0);
+            }
+            svg {
+                fill: none;
+                stroke: var(--s);
+                stroke-width: 2px;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke .4s;
+                &.eye {
+                    --s: var(--e, var(--normal-eye));
+                    --t: 17px;
+                    --w: 7px;
+                    --h: 4px;
+                    &.right {
+                        --l: 23px;
+                    }
+                }
+                &.mouth {
+                    --s: var(--m, var(--normal-mouth));
+                    --l: 11px;
+                    --t: 23px;
+                    --w: 18px;
+                    --h: 7px;
+                }
+            }
+            &:before,
+            &:after {
+                content: '';
+                z-index: var(--zi, 1);
+                border-radius: var(--br, 1px);
+                background: var(--b, var(--e, var(--normal-eye)));
+                transition: background .4s;
+            }
+        }
+        &.angry {
+            --step-1-rx: -24deg;
+            --step-1-ry: 20deg;
+            --step-2-rx: -24deg;
+            --step-2-ry: -20deg;
+            div {
+                &:before {
+                    --r: 20deg;
+                }
+                &:after {
+                    --l: 23px;
+                    --r: -20deg;
+                }
+                svg {
+                    &.eye {
+                        stroke-dasharray: 4.55;
+                        stroke-dashoffset: 8.15;
+                    }
+                }
+            }
+            &.active {
+                animation: angry 1s linear;
+                div {
+                    &:before {
+                        --middle-y: -2px;
+                        --middle-r: 22deg;
+                        animation: toggle .8s linear forwards;
+                    }
+                    &:after {
+                        --middle-y: 1px;
+                        --middle-r: -18deg;
+                        animation: toggle .8s linear forwards;
+                    }
+                }
+            }
+        }
+        &.sad {
+            --step-1-rx: 20deg;
+            --step-1-ry: -12deg;
+            --step-2-rx: -18deg;
+            --step-2-ry: 14deg;
+            div {
+                &:before,
+                &:after {     
