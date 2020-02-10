@@ -17,3 +17,7 @@
         position: relative;
         border-radius: 50%;
         background: var(--sb, var(--
+        normal));
+        box-shadow: inset 3px -3px 4px var(--sh, var(--normal-shadow));
+        transition: background .4s, box-shadow .4s, transform .3s;
+        -webkit-tap-highlight-color: 
