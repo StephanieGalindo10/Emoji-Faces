@@ -1,4 +1,4 @@
-////
+
 
 document.querySelectorAll('.feedback li').forEach(entry => entry.addEventListener('click', e => {
     if(!entry.classList.contains('active')) {
